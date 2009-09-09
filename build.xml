@@ -83,9 +83,9 @@
     </fileset>
 
 
-    <!--<fileset dir="${lib.dir}">-->
-    <!--<include name="*.jar"/>-->
-    <!--</fileset>-->
+	<fileset dir="${lib.dir}">
+    <include name="*.jar"/>
+    </fileset>
 
     <fileset dir="${hadoop.home}">
       <include name="*.jar"/>

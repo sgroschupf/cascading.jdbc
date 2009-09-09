@@ -176,7 +176,7 @@ public class DBInputFormat<T extends DBWritable> implements InputFormat<LongWrit
     /** {@inheritDoc} */
     public T createValue()
       {
-      return ReflectionUtils.newInstance( inputClass, job );
+      return (T) ReflectionUtils.newInstance( inputClass, job );
       }
 
     /** {@inheritDoc} */
@@ -218,22 +218,18 @@ public class DBInputFormat<T extends DBWritable> implements InputFormat<LongWrit
   /** A Class that does nothing, implementing DBWritable */
   public static class NullDBWritable implements DBWritable, Writable
     {
-    @Override
     public void readFields( DataInput in ) throws IOException
       {
       }
 
-    @Override
     public void readFields( ResultSet arg0 ) throws SQLException
       {
       }
 
-    @Override
     public void write( DataOutput out ) throws IOException
       {
       }
 
-    @Override
     public void write( PreparedStatement arg0 ) throws SQLException
       {
       }
@@ -511,4 +507,8 @@ public class DBInputFormat<T extends DBWritable> implements InputFormat<LongWrit
 
     dbConf.setMaxConcurrentReadsNum( concurrentReads );
     }
+
+	public void validateInput(JobConf arg0) throws IOException {
+		// TODO 
+	}
   }
